@@ -3,7 +3,18 @@ import { ref, watch, reactive } from 'vue'
 import quoteData from './assets/quotes.js'
 import letterDisplay from './components/letterDisplay.vue';
 import nextMp3 from './assets/next.mp3'
-import tobbyPic1 from '@/assets/tobysquare.jpg';
+
+
+import tobbyPic1 from '@/assets/tobbyPics/tobysquare.jpg';
+import tobbyPic2 from '@/assets/tobbyPics/tobbySquare1.jpg';
+import tobbyPic3 from '@/assets/tobbyPics/tobbySquare2.jpg';
+import tobbyPic4 from '@/assets/tobbyPics/tobbySquare3.jpg';
+import tobbyPic5 from '@/assets/tobbyPics/tobbySquare4.jpg';
+import tobbyPic6 from '@/assets/tobbyPics/tobbySquare5.jpg';
+import tobbyPic7 from '@/assets/tobbyPics/tobbySquare6.jpeg';
+import tobbyPic8 from '@/assets/tobbyPics/tobbySquare7.jpeg';
+import tobbyPic9 from '@/assets/tobbyPics/tobbySquare8.jpg';
+
 
 
 const isStarted = ref(false)
@@ -17,7 +28,7 @@ const unparsedSentence = ref("");
 const isEnded = ref(false);
 const audio = new Audio(nextMp3);
 const currentPuzzle = reactive({type: "", content: "", rotation: 0, solved: false, completionMessage: ""});
-const tobbyImages = [tobbyPic1];
+const tobbyImages = [tobbyPic1, tobbyPic2, tobbyPic3, tobbyPic4, tobbyPic5, tobbyPic6, tobbyPic7, tobbyPic8, tobbyPic9];
 const totalTobbySpins = ref(0);
 
 function finishPuzzle() {
