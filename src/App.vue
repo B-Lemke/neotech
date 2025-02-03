@@ -222,7 +222,7 @@ class Word {
       <input type="text" v-model="startCode" class="form-control"/>
     </div>
     <div v-if="isStarted && !workingOnPuzzle && !solved && !partnerLookupOpen">
-      <p>Grab some chalk and work together. Start clicking spaces and write what you find on the board. Divide and conquer, you don't need to reveal every letter yourself.</p>
+      <p>Grab some chalk and work together. Start clicking spaces and write the revealed letters on the board. Divide and conquer. Order does not matter.</p>
       <div class="phrase bg-dark">
         <div v-for="(word,index) in phrase" :key="index" class="words">
           <letter-display v-for="letter in word.letters" :letter="letter" :key="letter.index" @click="loadPuzzle(letter)"></letter-display>
