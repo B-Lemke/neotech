@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, reactive } from 'vue'
+import { ref, watch, reactive, computed } from 'vue'
 import { filename } from 'pathe/utils'
 import quoteData from './assets/quotes.js'
 import letterDisplay from './components/letterDisplay.vue';
@@ -131,25 +131,27 @@ function startUpPlay(phraseString) {
   });
 }
 
+const filteredQuotes = computed(() => {
+  console.log(isShortPlay, quotes.filter((quote) => {return quote.OmitInShortPlay == null || !quote.OmitInShortPlay }), quotes);
+  return isShortPlay.value ? quotes.filter((quote) => {return quote.OmitInShortPlay == null || !quote.OmitInShortPlay }) : quotes;
+})
+
+
 function loadPuzzle(letter) {
-  if(!letter.solved) { // PRevent duplicates
+  if(!letter.solved) { // Prevent duplicates
     workingOnPuzzle.value = true;
     currentPuzzle.type = letter.type;
-
+    console.log("TEST");
     if(letter.type == PuzzleType.QUOTE) {
+      console.log("TEST2");
+      console.log(filteredQuotes.value.length);
+
       // If not enough quotes pick a random one
-      if(letter.quoteIndex >= quotes.length) {
-        letter.quoteIndex = Math.floor(Math.random()*quotes.length);
+      if(letter.quoteIndex >= filteredQuotes.value.length) {
+        letter.quoteIndex = Math.floor(Math.random()*filteredQuotes.value.length);
       }
 
-      if(isShortPlay){
-        //Assign quote
-        currentPuzzle.content = quotes.filter((quote) => {return quote.OmitInShortPlay == null || !quote.OmitInShortPlay })[letter.quoteIndex]
-      }
-      else {
-        //Assign quote
-        currentPuzzle.content = quotes[letter.quoteIndex]
-      }
+        currentPuzzle.content = filteredQuotes.value[letter.quoteIndex]      
     }
 
     if(letter.type == PuzzleType.CLICK) {
@@ -235,7 +237,7 @@ class Word {
 
     <div v-if="isStarted && workingOnPuzzle">
       <div v-if="currentPuzzle.type == PuzzleType.QUOTE" class="quote-card">
-        <h2 class="quote-header">{{ currentPuzzle.content.Header }}</h2>
+        <h2 class="quote-header" v-if="currentPuzzle.content.Header">{{ currentPuzzle.content.Header }}</h2>
         
         <p class="quote-body">{{ currentPuzzle.content.Body }}</p>
         <img v-if="currentPuzzle.content.ImageKey != null" :src="quoteImages[currentPuzzle.content.ImageKey]" alt="" class="w-100 m-auto">
