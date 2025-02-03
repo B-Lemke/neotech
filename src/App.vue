@@ -9,7 +9,7 @@ const tobbyGlob = import.meta.glob('@/assets/tobbyPics/*', { eager: true })
 const quoteGlob = import.meta.glob('@/assets/quoteImages/*', { eager: true })
 
 const tobbyImages = 
-  Object.entries(tobbyGlob).map(([value]) => value)
+  Object.entries(tobbyGlob).map(([key, value]) => value.default)
 const quoteImages = 
 Object.fromEntries(
   Object.entries(quoteGlob).map(([key, value]) => [filename(key), value.default])
