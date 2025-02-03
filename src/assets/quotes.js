@@ -1,6 +1,6 @@
 let quoteData = [{
     "Header": "Mother Son Bonding",
-    "Body": "My first time making a website was in seventh grade. I completed a lot of my mom’s coursework alongside her as she got her associates. It was one of the few times we spent a lot of time together."
+    "Body": "My first time making a website was in seventh grade. I completed a lot of my mom’s coursework alongside her as she got her associates. It was rare to get to spend uninterrupted time together."
 },
 {
     "Header": "Easy Ball",

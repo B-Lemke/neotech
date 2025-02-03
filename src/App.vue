@@ -220,27 +220,28 @@ class Word {
       <input type="text" v-model="startCode" class="form-control"/>
     </div>
     <div v-if="isStarted && !workingOnPuzzle && !solved && !partnerLookupOpen">
-      <p>Grab some chalk and work together. Start clicking letters. Divide and conquer or this will take a long time.</p>
-      <div class="phrase">
+      <p>Grab some chalk and work together. Start clicking spaces and write what you find on the board. Divide and conquer, you don't need to reveal every letter yourself.</p>
+      <div class="phrase bg-dark">
         <div v-for="(word,index) in phrase" :key="index" class="words">
           <letter-display v-for="letter in word.letters" :letter="letter" :key="letter.index" @click="loadPuzzle(letter)"></letter-display>
         </div>
       </div>
      
-      <button @click="partnerLookupToggle()" class="mt-3 mx-1 btn btn-primary" v-if="!finishedButtonClick">Partner Lookup</button>
-      <button v-if="finishedButtonClick" @click="finishPuzzle()" class="mt-3 btn btn-primary">Only click if full quote is written in chalk so everyone can see it.</button>
-      <button @click="clickedFinishButton()" class="mt-3 btn btn-primary">{{ finishedButtonClick ?  "Cancel" : "We finished it!"}}</button>
+      <button @click="partnerLookupToggle()" class="mt-3 mx-1 btn btn-secondary" v-if="!finishedButtonClick">Partner Lookup</button>
+      <button v-if="finishedButtonClick" @click="finishPuzzle()" class="mt-3 mx-1 btn btn-secondary">Only click if full quote is written in chalk so everyone can see it.</button>
+      <button @click="clickedFinishButton()" class="mt-3 btn btn-secondary">{{ finishedButtonClick ?  "Cancel" : "We finished it!"}}</button>
       
     </div>
 
     <div v-if="isStarted && workingOnPuzzle">
-      <div v-if="currentPuzzle.type == PuzzleType.QUOTE">
-        <h2>{{ currentPuzzle.content.Header }}</h2>
-        <p>{{ currentPuzzle.content.Body }}</p>
+      <div v-if="currentPuzzle.type == PuzzleType.QUOTE" class="quote-card">
+        <h2 class="quote-header">{{ currentPuzzle.content.Header }}</h2>
+        
+        <p class="quote-body">{{ currentPuzzle.content.Body }}</p>
         <img v-if="currentPuzzle.content.ImageKey != null" :src="quoteImages[currentPuzzle.content.ImageKey]" alt="" class="w-100 m-auto">
 
         
-        <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Back</button>
+        <button @click="completePuzzle" class="btn btn-secondary mt-2 mx-auto d-block ">Back</button>
       </div>
 
       <div v-if="currentPuzzle.type == PuzzleType.CLICK">
@@ -249,10 +250,10 @@ class Word {
 
 
         
-        <button @click="completePuzzle" class="btn btn-primary mt-2 d-block mx-2" v-if="currentPuzzle.rotation == 0">Click here if Tobby doesn't load after a few seconds.</button>
+        <button @click="completePuzzle" class="btn btn-secondary mt-2 d-block mx-2" v-if="currentPuzzle.rotation == 0">Click here if Tobby doesn't load after a few seconds.</button>
         <div v-if="currentPuzzle.solved">
           <p class="mt-2">{{currentPuzzle.completionMessage}}</p>
-          <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Back</button>
+          <button @click="completePuzzle" class="btn btn-secondary mt-2 d-block">Back</button>
         </div>
         
       </div>
@@ -267,7 +268,7 @@ class Word {
         <input type="text" v-model="partnerCodeInput" /> 
 
         <div v-if="currentPuzzle.solved">
-          <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Submit</button>
+          <button @click="completePuzzle" class="btn btn-secondary mt-2 d-block">Submit</button>
         </div>
       </div>
     </div>
@@ -277,30 +278,36 @@ class Word {
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Code</th>
-            <th scope="col">Word</th>
+            <th scope="col" class="font-weight-bold">Code</th>
+            <th scope="col" class="font-weight-bold">Word</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(value, key, index) in partnerCodes" :key="index">
-            <th>{{ key }}</th>
+            <td>{{ key }}</td>
             <td>{{value}}</td>
           </tr>
         </tbody>
       </table>
-      <button @click="partnerLookupToggle" class="btn btn-primary">Close Partner Lookup</button>
+      <button @click="partnerLookupToggle" class="btn btn-secondary">Close Partner Lookup</button>
     </div>
 
-    <div class="solvedMessage" v-if="isStarted && solved && !isEnded">
-      <h2>{{ unparsedSentence }}</h2>
+    <div class="solvedMessage quote-card" v-if="isStarted && solved && !isEnded">
+      <h2 class="quote-header">{{ unparsedSentence }}</h2>
 
-      <p>Countdown together from 5 and then push this button.</p>
-      <button @click="endPlay" class="btn btn-large btn-primary">?</button>
+      <p class="quote-body">Countdown together from 5 and then push this button.</p>
+      <button @click="endPlay" class="btn btn-large mx-auto btn-secondary d-block">?</button>
     </div>
 
     <div v-if="isEnded">
-    <p>Fun Fact: You spun tobby {{ totalTobbySpins }} times.</p>
-    <h1>Next.</h1></div>
+    <p class="quote-card">Fun Fact: You spun tobby {{ totalTobbySpins }} times.</p>
+    <h1 class="next1">Next.</h1>
+    <h1 class="next2">Next.</h1>
+    <h1 class="next3">Next.</h1>
+    <h1 class="next4">Next.</h1>
+    <h1 class="next5">Next.</h1>
+  
+  </div>
   </div>
 </template>
 
@@ -310,6 +317,9 @@ class Word {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 10px;
+  border: 3px #71BBB2 solid 
 }
 
 .words {
@@ -339,4 +349,83 @@ class Word {
 img {
   max-width: 300px;
 }
+
+.quote-card {
+  background-color: var(--dark-bg-color);
+  color: var(--light-bg-color);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px #71BBB2;
+}
+
+.btn-secondary {
+  background-color: #497D74;
+}
+
+.quote-header {
+  padding:10px;
+  text-align: center;
+  border-bottom: 1px var(--light-bg-color) solid;
+}
+
+.quote-body {
+  text-align: center;
+}
+
+table {
+  border-radius: 10px;
+}
+
+th {
+  background-color: var(--dark-bg-color);
+  color: var(--light-bg-color)
+}
+
+.next1 {
+  color:#000000;
+  text-shadow: 1px 1px 2px #27445D;
+  animation: blinkAnimation 2.5s linear infinite;
+  animation-delay: -2.5s;
+}
+.next2 {
+  color:#27445D;
+  text-shadow: 1px 1px 2px #497D74;
+  animation: blinkAnimation 2.5s linear infinite;
+  animation-delay: -2s;
+}
+.next3 {
+  color:#497D74;
+  text-shadow: 1px 1px 2px #71BBB2;
+  animation: blinkAnimation 2.5s linear infinite;
+  animation-delay: -1.5s;
+}
+.next4 {
+  color:#71BBB2;
+  text-shadow: 1px 1px 2px #EFE9D5;
+  animation: blinkAnimation 2.5s linear infinite;
+  animation-delay: -1s;
+}
+.next5 {
+  color:#EFE9D5;
+  text-shadow: 1px 1px 2px #000000;
+  animation: blinkAnimation 2.5s linear infinite;
+  animation-delay: -0.5s;
+}
+
+@keyframes blinkAnimation {
+  0% {
+    opacity: 0%;
+  }
+  20% {
+    opacity: 100%;
+  }
+  40%{
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+  }
+
+}
+
 </style>

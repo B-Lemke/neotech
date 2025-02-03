@@ -1,0 +1,25 @@
+* {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+:root {
+    --light-bg-color: #EFE9D5;
+    --dark-bg-color: #27445D;
+  }
+  
+  .bg-light {
+    background: var(--light-bg-color);
+  }
+  
+  html, body {
+    background-color: var(--light-bg-color);
+  }
+
+  .bg-dark {
+    background-color: var(--dark-bg-color);
+  }

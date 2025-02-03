@@ -23,10 +23,12 @@ defineProps(['letter'])
     justify-content: flex-end;
     font-size: 2em;
     text-align: center;
+    color: var(--light-bg-color);
+
 }
 
 .notSolved {
-    border-bottom: 3px black solid;
+    border-bottom: 3px var(--light-bg-color) solid;
     width: 100%;
     height: 100%;
 }
