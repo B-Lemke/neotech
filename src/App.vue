@@ -64,12 +64,13 @@ function endPlay() {
 }
 
 watch(startCode, (newCode) => {
-  if(newCode == 'frustration') {
+  let lowerCode = newCode.toLowerCase;
+  if(lowerCode == 'frustration') {
     // Must end with a " " so the last word gets pushed.
     startUpPlay("I miss when tech brought people together ");
   }
 
-  if(newCode == 'lonely') {
+  if(lowerCode == 'lonely') {
     // Must end with a " " so the last word gets pushed.
     startUpPlay("I miss when tech united people ");
   }
@@ -238,6 +239,9 @@ class Word {
         <h2 v-if="!currentPuzzle.solved">Click Tobby. {{ currentPuzzle.rotation >= 360 ? "Again." : "" }} {{ currentPuzzle.rotation >= 720 ? "More." : "" }}</h2>
         <img :src="currentPuzzle.content" alt="" class="tobbyPic" @click="rotateTobby" v-bind:style="{transform: `rotate(${currentPuzzle.rotation}deg)`}">
 
+
+        
+        <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Click here if Tobby doesn't load after a few seconds.</button>
         <div v-if="currentPuzzle.solved">
           <p class="mt-2">{{currentPuzzle.completionMessage}}</p>
           <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Back</button>
