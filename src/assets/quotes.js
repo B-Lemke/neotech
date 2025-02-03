@@ -37,7 +37,7 @@ let quoteData = [{
 },
 {
     "Header": "Weirdest interview",
-    "Body": "When I interviewed for my current job they asked me to drive four hours and come in person for a day full of talking to people. At the end of the interviews I was asked if I wanted to see Avengers Endgame. I’d only ever seen the first one or two Avengers movies, and I hadn’t seen Infinity War. I watched the movie.",
+    "Body": "When I interviewed for my current tech job they asked me to drive four hours and come in person for a day full of talking to people. At the end of the interviews I was asked if I wanted to see Avengers Endgame. I’d only ever seen the first one or two Avengers movies, and I hadn’t seen Infinity War. I watched the movie.",
     "OmitInShortPlay": true,
 },
 {
