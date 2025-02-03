@@ -65,7 +65,7 @@ function endPlay() {
 watch(startCode, (newCode) => {
   let lowerCode = newCode.toLowerCase();
 
-  if(lowerCode == 'frustration') {
+  if(lowerCode == 'social') {
     // Must end with a " " so the last word gets pushed.
     startUpPlay("I miss when tech brought people together ");
   }

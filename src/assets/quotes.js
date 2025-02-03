@@ -30,12 +30,24 @@ let quoteData = [{
     "Body": "For my partner’s birthday last year I made an escape room. I didn’t have locks or a secure area so it featured a lot of boxes with physical clues hidden around the house and a website to enter answers to the cyphers on. I spent at least 30+ hours programming it for one hour of fun.",
 },
 {
+    "Header": "New experiences",
+    "Body": "My first tech job was working with developing virtual reality. I created 360° tours of a disaster training facility at the college I worked at. It allowed people to see the facility even if they weren’t able to visit in person.",
+},
+{
+    "Header": "Weirdest interview",
+    "Body": "When I interviewed for my current job they asked me to drive four hours and come in person for a day full of talking to people. At the end of the interviews I was asked if I wanted to see Avengers Endgame. I’d only ever seen the first one or two Avengers movies, and I hadn’t seen Infinity War. I watched the movie.",
+},
+{
     "Header": "Neopets",
     "Body": "Back in the day you used to be able to customize your neopets profile with CSS. It was a major factor in me learning web design. You can’t let people do that as much anymore with issues of security, but I miss when the internet was more playful.",
 },
 {
     "Header": "KnobCon",
     "Body": "I go to a synthesizer convention every year. I love listening to people debate whether analog or software based synthesizers are better. I don’t care personally, but I love that there are hundreds of people who care and show up every tear to talk about it.",
+},
+{
+    "Header": "AI in Creative Fields",
+    "Body": "AI doesn’t belong in the creative field. At least not in its current form. It is trained on stolen data and it is irresponsible to use. I get so much satisfaction when I see a callout post that a company is using AI in its marketing and watching people get pissed.",
 },
 {
     "Header": "I don't fix computers.",
@@ -70,22 +82,7 @@ let quoteData = [{
     "Header": "The algorithm.",
     "Body": "Algorithms tailor what content gets fed to us. This play isn’t written with a technical algorithm to serve specific content to specific people. However, everyone will experience different stories and attitudes on the relations between technology and social relationships.",
 },
-{
-    "Header": "New experiences",
-    "Body": "My first tech job was working with developing virtual reality. I created 360° tours of a disaster training facility at the college I worked at. It allowed people to see the facility even if they weren’t able to visit in person.",
-},
-{
-    "Header": "Weirdest interview",
-    "Body": "When I interviewed for my current job they asked me to drive four hours and come in person for a day full of talking to people. At the end of the interviews I was asked if I wanted to see Avengers Endgame. I’d only ever seen the first one or two Avengers movies, and I hadn’t seen Infinity War. I watched the movie.",
-},
-{
-    "Header": "Overwatch got me a job",
-    "Body": "The reason that I stood out amongst other candidates for my current job was because of the projects I had completed. I thought the more business focused projects like a website with login, profiles, and image uploads would be the thing that got me a job. Instead, it was an app I made to pick a random character in the videogame Overwatch. I even got an overwatch sweatshirt from my boss my first day.",
-},
-{
-    "Header": "AI in Creative Fields",
-    "Body": "AI doesn’t belong in the creative field. At least not in its current form. It is trained on stolen data and it is irresponsible to use. I get so much satisfaction when I see a callout post that a company is using AI in its marketing and watching people get pissed.",
-},
+
 
 
 
