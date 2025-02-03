@@ -241,7 +241,7 @@ class Word {
 
 
         
-        <button @click="completePuzzle" class="btn btn-primary mt-2 d-block" v-if="currentPuzzle.rotation == 0">Click here if Tobby doesn't load after a few seconds.</button>
+        <button @click="completePuzzle" class="btn btn-primary mt-2 d-block mx-2" v-if="currentPuzzle.rotation == 0">Click here if Tobby doesn't load after a few seconds.</button>
         <div v-if="currentPuzzle.solved">
           <p class="mt-2">{{currentPuzzle.completionMessage}}</p>
           <button @click="completePuzzle" class="btn btn-primary mt-2 d-block">Back</button>
