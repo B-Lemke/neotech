@@ -14,7 +14,7 @@ const quoteImages =
 Object.fromEntries(
   Object.entries(quoteGlob).map(([key, value]) => [filename(key), value.default])
 )
-  console.log(quoteImages);
+  console.log(quoteImages, tobbyImages, tobbyGlob);
 
 const partnerCodes = reactive({
   101: "terrifying",
@@ -322,5 +322,9 @@ class Word {
   border-radius: 100%;
   transition: transform 0.5s ease-in-out;
   
+}
+
+img {
+  max-width: 300px;
 }
 </style>
