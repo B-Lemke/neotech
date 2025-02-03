@@ -22,6 +22,7 @@ defineProps(['letter'])
     align-content: end;
     justify-content: flex-end;
     font-size: 2em;
+    text-align: center;
 }
 
 .notSolved {
