@@ -1,16 +1,18 @@
 let quoteData = [{
     "Header": "Mother Son Bonding",
-    "Body": "My first time making a website was in seventh grade. I completed a lot of my mom’s coursework alongside her as she got her associates. It was one of the few times we spent time together."
+    "Body": "My first time making a website was in seventh grade. I completed a lot of my mom’s coursework alongside her as she got her associates. It was one of the few times we spent a lot of time together."
 },
 {
     "Header": "Easy Ball",
     "Body": "I started on a computer at 18 months. It had one of those giant mice that was just a rolling yellow ball and a single button. Sometimes I think it would be fun to get one of those and use it when I go into the office to see what others would say. ",
-    "ImageKey": "EasyBall"
+    "ImageKey": "EasyBall",
+    "OmitInShortPlay": true,
 },
 {
     "Header": "Python",
     "Body": "My first experience with python was in a group project at school. Most things were refreshers in the class, but I enjoyed making a text adventure at the end. In order to build the maps we would use a bunch of two-dimensional arrays. That’s just a fancy way of saying a grid that looks like this: ",
-    "ImageKey": "tilemap"
+    "ImageKey": "tilemap",
+    "OmitInShortPlay": true,
 },
 {
     "Header": "They don't get it",
@@ -36,6 +38,7 @@ let quoteData = [{
 {
     "Header": "Weirdest interview",
     "Body": "When I interviewed for my current job they asked me to drive four hours and come in person for a day full of talking to people. At the end of the interviews I was asked if I wanted to see Avengers Endgame. I’d only ever seen the first one or two Avengers movies, and I hadn’t seen Infinity War. I watched the movie.",
+    "OmitInShortPlay": true,
 },
 {
     "Header": "Neopets",
@@ -73,21 +76,17 @@ let quoteData = [{
 {
     "Header": "Ragebait",
     "Body": "I give the algorithms what they want. I’m working on not clicking on articles that scare me. I know it just pushes more into my feed. The ability to know so much about what's going on in the world with a click is a power people would’ve killed for hundreds of years ago. I wish I was stronger and could use social media without freaking myself out on a regular basis.",
+    "OmitInShortPlay": true,
 },
 {
     "Header": "TikTok",
     "Body": "I’ve had to stop using TikTok. The algorithm was trained on me with better mental health. Nowadays I can scroll for less than ten videos and wind up triggering a deep panic in myself. I use youtube shorts now as my preferred brain rot platform. It’s not as good, but it’s safer for me right now. ",
+    "OmitInShortPlay": true,
 },
 {
     "Header": "The algorithm.",
-    "Body": "Algorithms tailor what content gets fed to us. This play isn’t written with a technical algorithm to serve specific content to specific people. However, everyone will experience different stories and attitudes on the relations between technology and social relationships.",
-},
-
-
-
-
-
-]
+    "Body": "Algorithms tailor what content gets fed to us. This play isn’t written with a smart algorithm that serves specific content to specific people based on their browsing history. However, everyone will experience different stories and attitudes on the relations between technology and social relationships.",
+}]
 
 
 export default quoteData;

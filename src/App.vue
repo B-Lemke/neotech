@@ -42,6 +42,7 @@ const audio = new Audio(nextMp3);
 const currentPuzzle = reactive({type: "", content: "", rotation: 0, solved: false, completionMessage: ""});
 const totalTobbySpins = ref(0);
 const partnerCodeInput = ref("");
+const isShortPlay = ref(false);
 
 function partnerLookupToggle() {
   partnerLookupOpen.value = !partnerLookupOpen.value;
@@ -73,6 +74,7 @@ watch(startCode, (newCode) => {
   if(lowerCode == 'lonely') {
     // Must end with a " " so the last word gets pushed.
     startUpPlay("I miss when tech united people ");
+    isShortPlay.value = true;
   }
 })
 
@@ -140,8 +142,14 @@ function loadPuzzle(letter) {
         letter.quoteIndex = Math.floor(Math.random()*quotes.length);
       }
 
-      //Assign quote
-      currentPuzzle.content = quotes[letter.quoteIndex]
+      if(isShortPlay){
+        //Assign quote
+        currentPuzzle.content = quotes.filter((quote) => {return quote.OmitInShortPlay == null || !quote.OmitInShortPlay })[letter.quoteIndex]
+      }
+      else {
+        //Assign quote
+        currentPuzzle.content = quotes[letter.quoteIndex]
+      }
     }
 
     if(letter.type == PuzzleType.CLICK) {
