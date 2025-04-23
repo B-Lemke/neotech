@@ -20,6 +20,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Unity.vue"),
   },
+  {
+    path: "/stuck",
+    name: "Stuck",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Stuck.vue"),
+  },
   /* Default/404 */
   {
     path: "/404",

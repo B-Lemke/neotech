@@ -142,7 +142,7 @@ let stuckData = [
         "Inspiration": "Head Chef",
         "Type": types.TIW,
         "Challenges": [
-            "Be cheeky to the audience, drag out something they don't want",
+            "Be cheeky to the audience, drag out something they don't want to see",
             "It's going to be gross, but dive in fully",
             "Make it a guessing game, never learn the right answer if you're wrong",
             "Season it,  liberally.",
@@ -168,7 +168,7 @@ let stuckData = [
         ],
         "Date": "In show: 3/14/25",
         "Notes": "Andres and Annie Play",
-        "Author": NEO_COLLAB,
+        "Author": authors.NEO_COLLAB,
     },
     {
         "Inspiration": "breathing is considered both voluntary and involuntary",
@@ -179,7 +179,7 @@ let stuckData = [
             "Take a break and sit with the audience, get into their shoes",
             "Abuse a bodily function",
             "The punchline isn't anything more than a rhythm change",
-            "Nothing more than instructions, no stories, no facts, to opinions, just instruction."
+            "Nothing more than instructions, no stories, no facts, no opinions, just instruction."
         ],
         "Date": "In show: 3/14/25",
         "Notes": "",
@@ -369,7 +369,7 @@ let stuckData = [
             "Correct yourself when you get it wrong",
             "Get exhausted while being still",
             "It sounds like _____",
-            "You're held your tongue too long and you need to speak your truth, at least here you do",
+            "You've held your tongue too long and you need to speak your truth, at least here you do",
             "It's not fair, but at least I have options",
             "I am _____ here, I cannot be ______ there.",
             "Take an action that has a purpose and deprive it of that purpose"
