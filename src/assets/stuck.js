@@ -56,7 +56,7 @@ let stuckData = [
     },
     {
         "Inspiration": "Oranges do not occur naturally",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Never address the title",
             "Throw something",
@@ -70,7 +70,7 @@ let stuckData = [
     },
     {
         "Inspiration": "ALL HORSES ARE WILD HORSES EVERY HORSE IS A WILD HORSE",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Playground Chant",
             "Find a way to mimic an animal or object with your body",
@@ -83,7 +83,7 @@ let stuckData = [
     },
     {
         "Inspiration": "89 Seconds Until Midnight",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Find power in a line",
             "Tiny repeated movements, faster. faster.",
@@ -102,7 +102,7 @@ let stuckData = [
     },
     {
         "Inspiration": "The art of theater and its forms",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Use an object from childhood",
             "Don't explain the rules to the audience",
@@ -124,7 +124,7 @@ let stuckData = [
     },
     {
         "Inspiration": "SYNTHESIS",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Don't talk to the crowd, just one person, only to instruct",
             "Mitosis",
@@ -140,7 +140,7 @@ let stuckData = [
     },
     {
         "Inspiration": "Head Chef",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Be cheeky to the audience, drag out something they don't want",
             "It's going to be gross, but dive in fully",
@@ -155,7 +155,7 @@ let stuckData = [
     },
     {
         "Inspiration": "NONE OF OUR OWN STUNTS",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Use an object to stand in for yourself",
             "You HAVE to wear this specific outfit tonight",
@@ -172,7 +172,7 @@ let stuckData = [
     },
     {
         "Inspiration": "breathing is considered both voluntary and involuntary",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "You know what this is going to be from the title",
             "Video that is better watched with a group",
@@ -187,7 +187,7 @@ let stuckData = [
     },
     {
         "Inspiration": "how to say i'm sorry",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Take so much time. You don't need to rush. Rushing ruins it. Someone will appreciate the slow methodical nature, even if it's just you",
             "Metaphor, no words",
@@ -205,7 +205,7 @@ let stuckData = [
     },
     {
         "Inspiration": "Pre-Dawn Chorus / Post-Dusk Chorus",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Spread throughout the audience",
             "Lights slowly come up and down through the play",
@@ -224,7 +224,7 @@ let stuckData = [
     },
     {
         "Inspiration": "Sestina for Couch-Surfing",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Write a sestina (poem form)",
             "God mic, castmates do a task",
@@ -241,7 +241,7 @@ let stuckData = [
     },
     {
         "Inspiration": "BRICK",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Oh god, are you really going to hurt yourself like that?",
             "Yeah, do it again, you're not sweating enough",
@@ -258,7 +258,7 @@ let stuckData = [
     },
     {
         "Inspiration": "there is no I in ensemble (but if there was, it would be ensImble.)",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Together, then break off one at a time and come back",
             "Spin at varying heights",
@@ -274,7 +274,7 @@ let stuckData = [
     },
     {
         "Inspiration": "A Lesson (a dream) in the Second Person",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Make the stage a mess, a danger even",
             "Put your words in someone else's mouth",
@@ -288,7 +288,7 @@ let stuckData = [
     },
     {
         "Inspiration": "for lent, i'm giving up...",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Wave a giant flag",
             "Give up on something, commit to us",
@@ -304,7 +304,7 @@ let stuckData = [
     },
     {
         "Inspiration": "We are all James Carville tonight (James Carville is a Democratic consultant who insisted that Kamala Harris simply couldn't lose, who advised Bill Clinton to move right on crime, race, and drugs, and who, last week in the New York Times, advised the Democratic party not to fight, not to obstruct or resist the plunder and demolition of the federal government because now is not the time, he literally said 'roll over and play dead' he said 'instead of gearing up to fight them the most radical thing we can do is nothing at all,' and this guy is on TV, he's in the newspapers, and he's far from the only one, he's just the most senior representative of an entire class of comfortable dullards with nothing at stake and nothing to add and he's the one i h8 the most",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Exposition in the title",
             "Bodies on stage, only one person talking",
@@ -319,7 +319,7 @@ let stuckData = [
     },
     {
         "Inspiration": "AMEN IS THE NEW NEXT",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Let the season change the format of your work",
             "You need to remember this so many times, and you're going to struggle",
@@ -332,7 +332,7 @@ let stuckData = [
     },
     {
         "Inspiration": "Every Day We Invent the Wheel",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Play with your childhood imagination",
             "The sun comes up and goes back down",
@@ -348,7 +348,7 @@ let stuckData = [
     },
     {
         "Inspiration": "interdependence",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "Rely on others to support you",
             "Everyone can be involved in this piece even if they might struggle with parts",
@@ -363,7 +363,7 @@ let stuckData = [
     },
     {
         "Inspiration": "it's calving season",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "I am like those that come before me",
             "Correct yourself when you get it wrong",
@@ -380,7 +380,7 @@ let stuckData = [
     },
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
@@ -391,7 +391,7 @@ let stuckData = [
     },
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
@@ -402,7 +402,7 @@ let stuckData = [
     },
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
@@ -413,7 +413,7 @@ let stuckData = [
     },
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
@@ -424,7 +424,7 @@ let stuckData = [
     },
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
@@ -445,7 +445,7 @@ export default stuckData;
 /*
     {
         "Inspiration": "",
-        "Type": "The Infinite Wrench",
+        "Type": types.TIW,
         "Challenges": [
             "",
             ""
