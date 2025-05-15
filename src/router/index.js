@@ -29,6 +29,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Stuck.vue"),
   },
+  {
+    path: "/ThirtyF",
+    name: "ThirtyF",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "ThirtyF" */ "../views/ThirtyF.vue"),
+  },
   /* Default/404 */
   {
     path: "/404",
