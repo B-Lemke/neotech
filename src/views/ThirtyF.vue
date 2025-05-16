@@ -1,229 +1,268 @@
 <script setup>
+import { ref, onMounted, reactive, computed } from "vue";
 
+const oliviaGlob = import.meta.glob("@/assets/tobbyPics/*", { eager: true });
+
+const oliviaImages = Object.entries(oliviaGlob).map(
+  ([key, value]) => value.default
+);
+
+const oliviaImagesVue = reactive(oliviaImages);
+const finalOliviaImages = reactive([]);
+const oliviaImage1 = ref("");
+const oliviaImage2 = ref("");
+const imageTransitioning = ref(false);
+
+
+onMounted(() => {
+  pickOliviaImages();
+});
+
+function pickOliviaImages() {
+  imageTransitioning.value = true;
+
+  setTimeout(() => {
+    imageTransitioning.value = false;
+  }, 500);
+
+  oliviaImage1.value = "";
+  oliviaImage2.value = "";
+
+  if (oliviaImagesVue.length >= 2) {
+    oliviaImage1.value = randomImage();
+    oliviaImage2.value = randomImage();
+  }
+}
+
+function randomImage() {
+  let randomIndex = Math.floor(Math.random() * oliviaImagesVue.length);
+  let randomValue = oliviaImagesVue[randomIndex];
+  oliviaImagesVue.splice(randomIndex, 1);
+  return randomValue;
+}
+
+function selectOliviaPic(picNum) {
+  if (picNum == 1) {
+    finalOliviaImages.push(oliviaImage1.value);
+  } else if (picNum == 2) {
+    finalOliviaImages.push(oliviaImage2.value);
+  }
+
+  pickOliviaImages();
+}
 </script>
 
 <template>
-    <div>
-
-    <nav class="navbar" style="font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
-            <span class="material-symbols-outlined">local_fire_department</span>
-            <span class="material-symbols-outlined">comment</span>
-            <span class="material-symbols-outlined">person</span>
-    </nav>
-
- 
-    <div class="pic-and-actions">
-        <div class="pic">
-            <div class="pic-text">
-                <div class="pic-name-and-age">
-                    <h2>Tobby Sternitzky</h2>
-                    <h2>14</h2>
-                </div>
-                <div class="pic-bio">
-                    I would give up everything in the world for a single shred of string cheese. I live in the moment and am looking to give my love to another.
-                </div>
-            </div>
+  <div class="my-2 d-flex flex-column justify-content-center thirty-f-body">
+	 <Transition name="fly-down">
+      <div
+        class="tinderProfile my-4 bg-grey-lighten-5"
+        v-if="finalOliviaImages.length > 0"
+      >
+        <v-carousel
+          class="profileCarousel"
+          show-arrows="hover"
+          cycle
+          interval="2000"
+          hide-delimiters
+        >
+          <v-carousel-item
+            v-for="oliviaPic in finalOliviaImages"
+            :key="oliviaPic"
+            :src="oliviaPic"
+            cover
+          ></v-carousel-item>
+        </v-carousel>
+        <div class="tinderBio">
+          <h6 class="text-h6">
+            <span class="text-h6 text-grey-darken-4">Tobby Sternitzky</span>
+            <span class="mx-2 font-weight-regular text-grey-darken-2">14</span>
+            <span
+              ><v-icon icon="verified" size="x-small" class="text-blue"
+            /></span>
+          </h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
+            amet pellentesque ipsum. Ut posuere est et tortor tincidunt
+            vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia curae;
+          </p>
         </div>
-        <div class="actions">
-            <div class="action">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">favorite</span>
-            </div>
+        <div class="actions d-flex justify-content-center pb-4">
+          <div class="action">
+            <v-icon icon="close" class="" />
+          </div>
+          <div class="action">
+            <v-icon icon="star" class="" />
+          </div>
+          <div class="action">
+            <v-icon icon="favorite" class="" />
+          </div>
+        </div>
+      </div>
+    </Transition>
+      <Transition name="fade">
+    <div class="d-flex flex-row justify-content-around align-items-center my-5" v-if="oliviaImage1 && !imageTransitioning">
+     
+        <img
+          class="oliviaImageChoice"
+          :src="oliviaImage1"
+          alt=""
+          
+          @click="selectOliviaPic(1)"
+        />
 
-            <div class="action">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">star</span>
-            </div>
-
-            <div class="action">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">close</span>
-            </div>
-         </div>
+<h3>OR</h3>
+        <img
+          class="oliviaImageChoice"
+          :src="oliviaImage2"
+          alt=""
+          @click="selectOliviaPic(2)"
+        />
+    
     </div>
-</div>
+	</Transition>
 
-
+   
+    <Transition name="fly-up-next">
+      <div
+        class="text-center"
+        v-if="
+          oliviaImage1 == '' && oliviaImage2 == '' && oliviaImagesVue.length < 2
+        "
+      >
+        <h1>Next!</h1>
+      </div>
+    </Transition>
+  </div>
 </template>
 
-  <style scoped>
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	height: 100vh;
-	width: 100%;
-	font-family: 'Roboto', sans-serif;
-	background: grey;
-}
-
-/* Navbar */
-.navbar {
-	display: flex;
-	padding: 10px 0;
-	justify-content: space-around;
-	width: 100%;
-	height: 44px;
-}
-
-.navbar span {
-	font-size: 1.5rem;
-	color: #dadfe6;
-}
-
-.navbar span:hover
-{
-font-size: 1.9rem;
-}
-
-
-.navbar span:nth-child(1)
-{
-	color: #fe466d;
-}
-
-.navbar span:nth-child(1):hover
-{
-	color: red;
-	font-size: 1.9rem;
-}
-
-.pic-and-actions {
-	height: calc(100vh - 44px);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.pic
-{
-	width: 98vw;
-	height: 85vh;
-	background: url('../assets/tobbyPics/tobbySquare1.jpg') center center/cover;
-	border-radius: 10px;
-	display: flex;
-	align-items: flex-end;
-	color: #eee;
-	box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
-}
-
-.pic-text {
-	padding: 15px;
-	background: rgb(2, 0, 36);
-	background: rgb(2, 0, 36);
-	background: linear-gradient(
-		180deg,
-		rgba(2, 0, 36, 1) 0%,
-		rgba(35, 34, 65, 0) 0%,
-		rgba(0, 0, 0, 0.7) 52%
-	);
-	border-radius: 10px;
-}
-
-.pic-name-and-age
-{
-	display: flex;
-	align-items: center;
-	margin-bottom: 6px;
-}
-
-.pic-name-and-age h2
-{
-	font-size: 1.8rem;
-}
-
-.pic-name-and-age h2:nth-child(2)
-{
-	margin-left: 10px;
-	font-weight: 500;
-}
-
-.pic-bio
-{
-	line-height: 1.7rem;
-	font-weight: 500;
-	font-size: 1.1rem;
-}
-
+<style scoped>
 /* Actions */
-.actions
-{
-	flex: auto;
-	display: flex;
-	align-items: center;
-	margin: 1rem 0;
+.actions {
+  flex: auto;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
 }
 
-.action
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #fff;
-	height: 60px;
-	width: 60px;
-	border-radius: 50%;
-	font-size: 2rem;
-	box-shadow: 0 2px 6px 0 rgba(112, 125, 134, 0.14);
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 2px 6px 0 rgba(112, 125, 134, 0.14);
 }
 
-.actions .action:nth-child(1)
-{
-	color: #fd5068;
+.actions .action:nth-child(1) {
+  color: #fd5068;
 }
 
-.actions .action:nth-child(1):hover
-{
-height: 58px;
-width: 58px;
-font-size: 2.5rem;
+.actions .action:nth-child(1):hover {
+  height: 58px;
+  width: 58px;
+  font-size: 2.5rem;
 }
 
 .actions .action:nth-child(2) {
-	height: 48px;
-	width: 48px;
-	font-size: 1.5rem;
-	margin: 0 1rem;
-	color: #2db1ff;
+  height: 48px;
+  width: 48px;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: #2db1ff;
 }
 
-.actions .action:nth-child(2):hover{
-height: 58px;
-width: 58px;
-font-size: 2.5rem;
+.actions .action:nth-child(2):hover {
+  height: 58px;
+  width: 58px;
+  font-size: 2.5rem;
 }
-
 
 .actions .action:nth-child(3) {
-	color: #1be4a1;
+  color: #1be4a1;
 }
 
-
-.actions .action:nth-child(3):hover{
-height: 58px;
-width: 58px;
-font-size: 2.5rem;
+.actions .action:nth-child(3):hover {
+  height: 58px;
+  width: 58px;
+  font-size: 2.5rem;
 }
 
+.oliviaImageChoice {
+  max-width: 33%;
+  width: 33%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
+}
+
+.tinderProfile {
+  width: 50%;
+  margin: auto;
+  max-width: 500px;
+  min-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
+}
+
+.profileCarousel {
+  max-height: 400px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.tinderBio {
+  padding: 10px;
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.fly-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fly-down-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fly-down-enter-from,
+.fly-down-leave-to {
+  transform: translateY(-200px);
+  opacity: 0;
+}
+
+.fly-up-next-enter-active {
+  transition: all 0.3s ease-out 3s;
+}
+
+.fly-up-next-enter-from,
+.fly-up-next-leave-to {
+  transform: translateY(200px);
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.thirty-f-body {
+	height: 100vh;
+}
 
 @media (min-width: 1025px) {
-	.pic {
-		width: 367px;
-		height: 684px;
-	}
-
-	.actions {
-		flex: initial;
-	}
-
-	.pic-and-actions {
-		justify-content: center;
-	}
-
-	.navbar {
-		width: 400px;
-		margin: auto;
-	}
+  .actions {
+    flex: initial;
+  }
 }
 </style>
