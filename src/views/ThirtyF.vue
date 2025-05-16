@@ -12,7 +12,7 @@ const finalOliviaImages = reactive([]);
 const oliviaImage1 = ref("");
 const oliviaImage2 = ref("");
 const imageTransitioning = ref(false);
-
+const cycle = ref(false);
 
 onMounted(() => {
   pickOliviaImages();
@@ -48,6 +48,8 @@ function selectOliviaPic(picNum) {
     finalOliviaImages.push(oliviaImage2.value);
   }
 
+  cycle.value=true;
+
   pickOliviaImages();
 }
 </script>
@@ -62,7 +64,7 @@ function selectOliviaPic(picNum) {
         <v-carousel
           class="profileCarousel"
           show-arrows="hover"
-          cycle
+          :cycle="cycle"
           interval="2000"
           hide-delimiters
         >
