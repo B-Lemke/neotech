@@ -49,11 +49,10 @@ function selectOliviaPic(picNum) {
     finalOliviaImages.push(oliviaImage2.value);
   }
 
-  if(finalOliviaImages.length > 1){
-  cycle.value = true;
-  interval.value = 2000;
+  if (finalOliviaImages.length > 1) {
+    cycle.value = true;
+    interval.value = 2000;
   }
-
 
   pickOliviaImages();
 }
@@ -61,23 +60,26 @@ function selectOliviaPic(picNum) {
 
 <template>
   <div class="my-2 d-flex flex-column justify-content-center thirty-f-body">
-	 <Transition name="fly-down">
+    <Transition name="fly-down">
       <div
         class="tinderProfile my-4 bg-grey-lighten-5"
         v-if="finalOliviaImages.length > 0"
       >
         <v-carousel
           class="profileCarousel"
-          show-arrows="hover"
+          :show-arrows="false"
           :cycle="cycle"
           :interval="interval"
           hide-delimiters
+		  
         >
           <v-carousel-item
             v-for="oliviaPic in finalOliviaImages"
             :key="oliviaPic"
             :src="oliviaPic"
             cover
+			class="slideshow-pic"
+
           ></v-carousel-item>
         </v-carousel>
         <div class="tinderBio">
@@ -95,7 +97,7 @@ function selectOliviaPic(picNum) {
             ultrices posuere cubilia curae;
           </p>
         </div>
-        <div class="actions d-flex justify-content-center pb-4">
+        <div class="actions d-flex justify-content-center">
           <div class="action">
             <v-icon icon="close" class="" />
           </div>
@@ -108,29 +110,28 @@ function selectOliviaPic(picNum) {
         </div>
       </div>
     </Transition>
-      <Transition name="fade">
-    <div class="d-flex flex-row justify-content-around align-items-center my-5" v-if="oliviaImage1 && !imageTransitioning">
-     
+    <Transition name="fade">
+      <div
+        class="d-flex flex-row justify-content-around align-items-center my-5"
+        v-if="oliviaImage1 && !imageTransitioning"
+      >
         <img
           class="oliviaImageChoice"
           :src="oliviaImage1"
           alt=""
-          
           @click="selectOliviaPic(1)"
         />
 
-<h3>OR</h3>
+        <h3>OR</h3>
         <img
           class="oliviaImageChoice"
           :src="oliviaImage2"
           alt=""
           @click="selectOliviaPic(2)"
         />
-    
-    </div>
-	</Transition>
+      </div>
+    </Transition>
 
-   
     <Transition name="fly-up-next">
       <div
         class="text-center"
@@ -264,12 +265,45 @@ function selectOliviaPic(picNum) {
 }
 
 .thirty-f-body {
-	height: 100vh;
+  height: 100vh;
 }
 
-@media (min-width: 1025px) {
+@media (max-width: 1025px) {
+  .tinderProfile {
+    width: 50%;
+    margin: auto;
+    max-width: 200px;
+    min-width: 100px;
+    font-size: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
+  }
+
+  .profileCarousel {
+    max-height: 200px;
+    height: 200px;
+    width: 100%;
+  }
+
+  .profileCarousel .slideshow-pic {
+    max-height: 200px;
+    height: 200px;
+    width: 100%;
+  }
+
+  .action {
+    height: 20px;
+    width: 20px;
+    font-size: 1rem;
+    padding: 2px;
+  }
+
   .actions {
-    flex: initial;
+    margin: 0.5rem 0;
+  }
+
+  p {
+    margin-bottom: 0;
   }
 }
 </style>
