@@ -13,6 +13,7 @@ const oliviaImage1 = ref("");
 const oliviaImage2 = ref("");
 const imageTransitioning = ref(false);
 const cycle = ref(false);
+const interval = ref(0);
 
 onMounted(() => {
   pickOliviaImages();
@@ -48,7 +49,11 @@ function selectOliviaPic(picNum) {
     finalOliviaImages.push(oliviaImage2.value);
   }
 
-  cycle.value=true;
+  if(finalOliviaImages.length > 1){
+  cycle.value = true;
+  interval.value = 2000;
+  }
+
 
   pickOliviaImages();
 }
@@ -65,7 +70,7 @@ function selectOliviaPic(picNum) {
           class="profileCarousel"
           show-arrows="hover"
           :cycle="cycle"
-          interval="2000"
+          :interval="interval"
           hide-delimiters
         >
           <v-carousel-item
