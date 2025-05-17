@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, reactive, computed } from "vue";
 
-const oliviaGlob = import.meta.glob("@/assets/tobbyPics/*", { eager: true });
+const oliviaGlob = import.meta.glob("@/assets/oliviaPics/*", { eager: true });
 
 const oliviaImages = Object.entries(oliviaGlob).map(
   ([key, value]) => value.default
@@ -84,17 +84,14 @@ function selectOliviaPic(picNum) {
         </v-carousel>
         <div class="tinderBio">
           <h6 class="text-h6">
-            <span class="text-h6 text-grey-darken-4">Tobby Sternitzky</span>
-            <span class="mx-2 font-weight-regular text-grey-darken-2">14</span>
+            <span class="text-h6 text-grey-darken-4">Olivia Soliz</span>
+            <span class="mx-2 font-weight-regular text-grey-darken-2">30</span>
             <span
               ><v-icon icon="verified" size="x-small" class="text-blue"
             /></span>
           </h6>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
-            amet pellentesque ipsum. Ut posuere est et tortor tincidunt
-            vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et
-            ultrices posuere cubilia curae;
+            30F. Non Smoker, Social Drinker. 5’2” Bisexual. (No, I do not want to be your “third”) ya nasty. Recently lost the loml to a freak accident - ask me my favorite things about her.
           </p>
         </div>
         <div class="actions d-flex justify-content-center">
