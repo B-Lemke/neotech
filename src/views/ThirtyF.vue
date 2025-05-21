@@ -59,6 +59,7 @@ function selectOliviaPic(picNum) {
 </script>
 
 <template>
+  <div class="content">
   <div class="my-2 d-flex flex-column justify-content-center thirty-f-body">
     <Transition name="fly-down">
       <div
@@ -71,6 +72,7 @@ function selectOliviaPic(picNum) {
           :cycle="cycle"
           :interval="interval"
           hide-delimiters
+          height="auto"
 		  
         >
           <v-carousel-item
@@ -82,6 +84,7 @@ function selectOliviaPic(picNum) {
 
           ></v-carousel-item>
         </v-carousel>
+        
         <div class="tinderBio">
           <h6 class="text-h6">
             <span class="text-h6 text-grey-darken-4">Olivia Soliz</span>
@@ -90,11 +93,11 @@ function selectOliviaPic(picNum) {
               ><v-icon icon="verified" size="x-small" class="text-blue"
             /></span>
           </h6>
-          <p>
+          <p class="bio-text">
             30F. Non Smoker, Social Drinker. 5’2” Bisexual. (No, I do not want to be your “third”) ya nasty. Recently lost the loml to a freak accident - ask me my favorite things about her.
           </p>
         </div>
-        <div class="actions d-flex justify-content-center">
+        <div class="actions d-none justify-content-center">
           <div class="action">
             <v-icon icon="close" class="" />
           </div>
@@ -109,7 +112,7 @@ function selectOliviaPic(picNum) {
     </Transition>
     <Transition name="fade">
       <div
-        class="d-flex flex-row justify-content-around align-items-center my-5"
+        class=" olivia-choice d-flex flex-row justify-content-around align-items-center my-5"
         v-if="oliviaImage1 && !imageTransitioning"
       >
         <img
@@ -140,13 +143,20 @@ function selectOliviaPic(picNum) {
       </div>
     </Transition>
   </div>
+  </div>
 </template>
 
 <style scoped>
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
 /* Actions */
 .actions {
   flex: auto;
-  display: flex;
+  display: none;
+  /*display: flex;*/
   align-items: center;
   margin: 1rem 0;
 }
@@ -198,29 +208,38 @@ function selectOliviaPic(picNum) {
 }
 
 .oliviaImageChoice {
-  max-width: 33%;
-  width: 33%;
+  max-height: 100%;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
 }
 
-.tinderProfile {
-  width: 50%;
+.olivia-choice {
+  height: 30vh;
+  max-width: 100vw;
+  width: 60vw;
   margin: auto;
-  max-width: 500px;
-  min-width: 300px;
+}
+
+.tinderProfile {
+  width: 30vh;
+  margin: auto;
+  max-width: 30vh;
+  height: 60vh;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
 }
 
 .profileCarousel {
-  max-height: 400px;
-  width: 100%;
+  width: 30vh;
+  height: 30vh;
   border-radius: 10px 10px 0 0;
 }
 
+
+
 .tinderBio {
   padding: 10px;
+  font-size: 1rem;
 }
 
 /*
@@ -265,13 +284,20 @@ function selectOliviaPic(picNum) {
   height: 100vh;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1200px) {
+
+  .content {
+    background:red;
+  }
+
+  .bio-text {
+    font-size: 0.8rem;
+  }
   .tinderProfile {
     width: 50%;
+    height: 45vh;
     margin: auto;
-    max-width: 200px;
-    min-width: 100px;
-    font-size: 10px;
+    font-size: 0.2rem !important;
     border-radius: 10px;
     box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
   }
