@@ -70,7 +70,7 @@ function selectOliviaPic(picNum) {
         />
     </div>
     <Transition name="fly-down">
-      <div class="col-md-4 "    v-if="finalOliviaImages.length > 0">
+      <div class="col-md-4 d-flex flex-col justify-content-center"    v-if="finalOliviaImages.length > 0">
         
       <div
         class="tinderProfile bg-grey-lighten-5 p-0"
@@ -140,7 +140,7 @@ function selectOliviaPic(picNum) {
 <style scoped>
 
 .content {
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   margin: auto;
   height: 100vh;
   display:flex;
@@ -215,7 +215,7 @@ function selectOliviaPic(picNum) {
   width: 80%;
   margin: auto;
   max-width: 100%;
-  height: 60vh;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
 }
@@ -230,7 +230,7 @@ function selectOliviaPic(picNum) {
 
 .tinderBio {
   padding: 10px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /*
@@ -275,11 +275,13 @@ function selectOliviaPic(picNum) {
   height: 100vh;
 }
 
+  .col-md-4, .col-md-6 {
+    height: 100%;
+  }
+
 @media (max-width: 1200px) {
 
-  .content {
-    background:red;
-  }
+
 
   .bio-text {
     font-size: 0.8rem;
