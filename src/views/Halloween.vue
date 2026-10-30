@@ -17,18 +17,22 @@ const images = ref([
 
 
 const animationStep = ref(0);
-const showcaseStep = ref(90);
-const showcaseImageStepLength = ref(20);
+const showcaseStep = ref(70);
+const showcaseImageStepLength = ref(5);
 const notEnoughTextStep = ref(showcaseStep.value + (showcaseImageStepLength.value * images.value.length + 1));
-const secondShowcaseStep = ref(notEnoughTextStep.value + 80);
+const secondShowcaseStep = ref(notEnoughTextStep.value + 70);
 const fasterTobbyDivisior = ref(3);
 const moreTobbiesTextStep = ref(secondShowcaseStep.value + ((showcaseImageStepLength.value) * images.value.length + 1) / fasterTobbyDivisior.value)
-const moreTobbiesStep = ref(moreTobbiesTextStep.value + 80);
+const moreTobbiesStep = ref(moreTobbiesTextStep.value + 70);
 const animationStarted = ref(false);
-
 const theEnd = ref(moreTobbiesStep.value + 100);
 
 let timerInterval = null;
+
+
+
+
+
 
 function getRandomImageName() {
   console.log(images.value[(Math.floor(Math.random() * images.value.length))].name);
@@ -49,18 +53,28 @@ const startTimer = () => {
 
 const reset = () => {
   animationStep.value = 0;
-
+    const music = document.getElementById("music");
+  music.currentTime  = 0;
+  music.play();
 };
 
 function startAnimation() {
   animationStarted.value = true;
   startTimer();
+
+  const music = document.getElementById("music");
+  music.loop = true;
+  music.play();
 }
 
 </script>
 
 <template>
   <div class="content">
+
+      <audio id="music" :src="getImageUrl('spooky.mp3')"></audio>
+
+      
     <div v-if="!animationStarted">
       <button class="btn btn-dark" v-on:click="startAnimation"> Scare Me. </button>
     </div>
@@ -75,7 +89,7 @@ function startAnimation() {
 
       <Transition name="fade">
         <h2
-          v-if="animationStep >= 30 && animationStep <= showcaseStep"
+          v-if="animationStep >= 20 && animationStep <= showcaseStep"
           class="my-3"
         >
           So here are the spookiest pictures of my dog.
@@ -130,7 +144,7 @@ function startAnimation() {
 
         <Transition name="fade">
           <h2
-            v-if="animationStep >= notEnoughTextStep + 30 && animationStep <= secondShowcaseStep"
+            v-if="animationStep >= notEnoughTextStep + 20 && animationStep <= secondShowcaseStep"
             class="my-3"
           >
             Here they are, but faster.
@@ -177,7 +191,7 @@ function startAnimation() {
       
         <Transition name="fade">
           <h2>
-            Fine. You've done this to yourself.
+            Not enough? You've done this to yourself.
           </h2>
         </Transition>
 
@@ -296,6 +310,7 @@ em {
   display: flex;
   flex-wrap: wrap;
   width: 100%; /* Set your desired total width */
+  margin: auto;
 }
 
 .tobby-grid-pic {
@@ -307,7 +322,8 @@ em {
   align-items: center;
   justify-content: center;
   border: 1px solid #ccc;
-    width: 100%;
+  width: 100%;
+
   height: 100%;
   object-fit: cover; /* Prevents stretching; clips edges if necessary */
   display: block;  
