@@ -16,7 +16,7 @@ const images = ref([
 ]);
 
 
-const animationStep = ref(100);
+const animationStep = ref(0);
 const showcaseStep = ref(70);
 const showcaseImageStepLength = ref(5);
 const notEnoughTextStep = ref(showcaseStep.value + (showcaseImageStepLength.value * images.value.length + 1));
