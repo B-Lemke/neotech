@@ -16,7 +16,7 @@ const images = ref([
 ]);
 
 
-const animationStep = ref(600);
+const animationStep = ref(0);
 const showcaseStep = ref(90);
 const showcaseImageStepLength = ref(20);
 const notEnoughTextStep = ref(showcaseStep.value + (showcaseImageStepLength.value * images.value.length + 1));
@@ -24,6 +24,7 @@ const secondShowcaseStep = ref(notEnoughTextStep.value + 80);
 const fasterTobbyDivisior = ref(3);
 const moreTobbiesTextStep = ref(secondShowcaseStep.value + ((showcaseImageStepLength.value) * images.value.length + 1) / fasterTobbyDivisior.value)
 const moreTobbiesStep = ref(moreTobbiesTextStep.value + 80);
+const animationStarted = ref(false);
 
 const theEnd = ref(moreTobbiesStep.value + 100);
 
@@ -51,15 +52,20 @@ const reset = () => {
 
 };
 
-onMounted(() => {
+function startAnimation() {
+  animationStarted.value = true;
   startTimer();
-  console.log(secondShowcaseStep);
-  console.log(notEnoughTextStep);
-});
+}
+
 </script>
 
 <template>
   <div class="content">
+    <div v-if="!animationStarted">
+      <button class="btn btn-dark" v-on:click="startAnimation"> Scare Me. </button>
+    </div>
+
+    <div v-if="animationStarted">
     <div class="text-screen" v-if="animationStep <= showcaseStep - 5">
       <Transition name="fade">
         <h2 v-if="animationStep <= showcaseStep">
@@ -213,7 +219,7 @@ onMounted(() => {
       <button v-on:click="reset"  class="btn btn-dark d-block m-auto my-5">Scare me again!</button>
       
     </div>
-     
+     </div>
   </div>
 </template>
 
