@@ -246,7 +246,7 @@ em {
 .content {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
   height: 100vh;
   display: flex;
