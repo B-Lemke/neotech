@@ -16,7 +16,7 @@ const images = ref([
 ]);
 
 
-const animationStep = ref(0);
+const animationStep = ref(100);
 const showcaseStep = ref(70);
 const showcaseImageStepLength = ref(5);
 const notEnoughTextStep = ref(showcaseStep.value + (showcaseImageStepLength.value * images.value.length + 1));
@@ -208,7 +208,7 @@ function startAnimation() {
       <div class="tobby-grid" v-if="animationStep >= moreTobbiesStep && animationStep <= theEnd">
 
         <div class="flex-grid">
-          <img class="tobby-grid-pic" v-for="index in 16" :key="index" :src=" getImageUrl(
+          <img class="tobby-grid-pic" :class="{ 'spin-image': animationStep - moreTobbiesStep >= (theEnd - moreTobbiesStep)/2}" v-for="index in 16" :key="index" :src=" getImageUrl(
               getRandomImageName(),
             )">
 
@@ -255,7 +255,20 @@ em {
   align-items: center;
   font-family: "Chiller W01", monospace;
 }
+/* 1. Define the custom spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
+/* 2. Create the utility class to apply to your image */
+.spin-image {
+  animation: spin 3s linear infinite;
+}
 .text-screen {
   height: 100vh;
   display: flex;
