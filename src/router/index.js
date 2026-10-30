@@ -46,16 +46,32 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "ThirtyF" */ "../views/ThirtyF2.vue"),
+  },    {
+    path: "/ThirtyF2",
+    name: "ThirtyF2",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "ThirtyF" */ "../views/ThirtyF2.vue"),
   },
   /* Default/404 */
   {
-    path: "/404",
-    alias: "/:pathMatch(.*)*",
-    name: "404",
+    path: "/qr",
+    name: "qr",
     component: () =>
       import(
-        /*webpackChunkName: "NotFound" */
-        "../views/404.vue"
+        /*webpackChunkName: "qr" */
+        "../views/qr.vue"
+      ),
+  },
+    {
+    path: "/halloween",
+    name: "Halloween",
+    component: () =>
+      import(
+        /*webpackChunkName: "Halloween" */
+        "../views/Halloween.vue"
       ),
   },
 ];
