@@ -20,7 +20,7 @@ const animationStep = ref(0);
 const showcaseStep = ref(70);
 const showcaseImageStepLength = ref(5);
 const notEnoughTextStep = ref(showcaseStep.value + (showcaseImageStepLength.value * images.value.length + 1));
-const secondShowcaseStep = ref(notEnoughTextStep.value + 70);
+const secondShowcaseStep = ref(notEnoughTextStep.value + 50);
 const fasterTobbyDivisior = ref(3);
 const moreTobbiesTextStep = ref(secondShowcaseStep.value + ((showcaseImageStepLength.value) * images.value.length + 1) / fasterTobbyDivisior.value)
 const moreTobbiesStep = ref(moreTobbiesTextStep.value + 70);
@@ -92,7 +92,7 @@ function startAnimation() {
           v-if="animationStep >= 20 && animationStep <= showcaseStep"
           class="my-3"
         >
-          So here are the spookiest pictures of my dog.
+          But my dog is terrifying.
         </h2>
       </Transition>
     </div>
@@ -147,7 +147,7 @@ function startAnimation() {
             v-if="animationStep >= notEnoughTextStep + 20 && animationStep <= secondShowcaseStep"
             class="my-3"
           >
-            Here they are, but faster.
+            Look again, but faster.
           </h2>
         </Transition>
       </div>
@@ -200,7 +200,7 @@ function startAnimation() {
             v-if="animationStep >= moreTobbiesTextStep + 30 && animationStep <= moreTobbiesStep"
             class="my-3"
           >
-            More. Tobby.
+            Him scream. Him bark. Him overwhelm. 
           </h2>
         </Transition>
       </div>
@@ -219,7 +219,7 @@ function startAnimation() {
     <div v-if="animationStep >= theEnd" >
       <h1>Terrifying, right?!</h1>
 
-      <p class="end-text">Okay, maybe I knew all along that he wasn't scary, but you know what I <em>do</em> find really scary? The lack of accessible funding for local arts. <a href="https://neofuturists.org/donate/">Check out this local theater</a> that's doing a fundraiser and consider donating to keep Chicago art thriving.</p>
+      <p class="end-text">Okay, maybe he isn't that scary, but you know what I <em>do</em> find really scary? The lack of accessible funding for local arts. <a href="https://neofuturists.org/donate/">Check out this local theater</a> that's doing a fundraiser and consider donating to keep Chicago art thriving.</p>
 
       <h3>Happy Halloween!!!</h3>
 
