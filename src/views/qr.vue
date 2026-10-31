@@ -14,7 +14,7 @@ onMounted(() => {
 
 <template>
   <div class="content">
-   <h2>Redirecting...</h2>
+   <h2></h2>
   </div>
 </template>
 
